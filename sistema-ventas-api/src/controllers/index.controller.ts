@@ -2,11 +2,10 @@ import { Request, Response } from 'express';
 
 class IndexController {
 
-    public index(req: Request, res: Response) {
+    public async index(req: Request, res: Response) {
         try {
             // ! testing
             // ? throw new RangeError('Error inesperado');
-
             return res.json({message : "API Works!"});
         } catch (error: any) {
             return res
