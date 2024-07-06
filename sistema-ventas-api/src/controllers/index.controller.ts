@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { utils } from '../utils/utils';
 
 class IndexController {
 
@@ -6,6 +7,7 @@ class IndexController {
         try {
             // ! testing
             // ? throw new RangeError('Error inesperado');
+
             return res.json({message : "API Works!"});
         } catch (error: any) {
             return res
