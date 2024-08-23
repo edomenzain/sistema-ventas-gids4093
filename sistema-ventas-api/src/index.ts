@@ -4,6 +4,9 @@ import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDocs from './routes/api.docs';
 import indexRoutes from './routes/index.routes';
+import authRoutes from './routes/auth.routes';
+import usuarioRoutes from './routes/usuario.routes';
+import generalRoutes from './routes/general.routes';
 
 class Server {
 
@@ -39,6 +42,9 @@ class Server {
             swaggerUI.serve, 
             swaggerUI.setup(swaggerDocs));
         this.app.use("/api", indexRoutes);
+        this.app.use("/api/auth", authRoutes);
+        this.app.use("/api/usuarios", usuarioRoutes);
+        this.app.use("/api/general", generalRoutes);
     }
 
     // * Generar un método para inicializar el servicio
