@@ -13,6 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Rol {
+  cveRol Int @id @default(autoincrement())
+  descripcion String @db.VarChar(250)
+  clave String @db.VarChar(45)
+  activo Boolean @db.TinyInt()
+
+  Usuario Usuario[]
+}
+
 model Usuario {
   cveUsuario Int @id @default(autoincrement())
   nombre String @db.VarChar(250)
@@ -20,6 +29,8 @@ model Usuario {
   username String @db.VarChar(150)
   password String @db.VarChar(800)
   fechaRegistro DateTime @default(now())
+  rol Rol @relation(fields: [cveRol], references: [cveRol])
+  cveRol Int
 
-  @@map("tbl_usuario")
+  @@map("usuario")
 }
