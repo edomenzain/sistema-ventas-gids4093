@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = "mysql://admin:admin123@sistema-ventas.c5yk0ksuufkv.us-east-1.rds.amazonaws.com:3306/sv_db"
 }
 
 model Rol {
@@ -20,6 +20,8 @@ model Rol {
   activo Boolean @db.TinyInt()
 
   Usuario Usuario[]
+
+  @@map("rol")
 }
 
 model Usuario {
